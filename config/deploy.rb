@@ -1,7 +1,7 @@
 lock '3.4.0'
 set :application, 'lavatory'
 set :repo_url, 'git@github.com:4nt1/lavatory.git'
-set :app_command, 'index.js'
+set :app_command, 'index'
 set :deploy_to, '/home/deploy/lavatory'
 require 'json'
 
