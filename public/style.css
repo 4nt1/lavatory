@@ -1,7 +1,9 @@
-h3 {
+#hint {
+  font-size: 80px;
   text-align: center;
 }
 #bulb {
+  margin: 0 auto;
   width : 80%;
   height: 80%;
 }

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <h1>Free ! Go for it !</h1>
+  <h1 id='hint'>Free ! Go for it !</h1>
   <div id="bulb">
     <svg  version="1.1"
           id="Capa_1"
@@ -46,11 +46,11 @@
     var socket = io();
     socket.on('bulb-on', function(msg){
       $('svg').find('path').css('fill', 'yellow');
-      $('h3').text('Seems occupied...');
+      $('#hint').text('Seems occupied...');
     });
     socket.on('bulb-off', function(msg){
       $('svg').find('path').css('fill', 'black');
-      $('h3').text('Free ! Go for it !');
+      $('#hint').text('Free ! Go for it !');
     });
   </script>
   </body>
