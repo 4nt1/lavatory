@@ -3,6 +3,11 @@ set :application, 'lavatory'
 set :repo_url, 'git@github.com:4nt1/lavatory.git'
 set :app_command, 'index'
 set :deploy_to, '/home/deploy/lavatory'
+
+set :linked_dirs, %w(
+  node_modules
+)
+
 require 'json'
 
 namespace :pm2 do
@@ -27,6 +32,7 @@ namespace :pm2 do
 
   def start_app
     within current_path do
+      execute :npm, :install
       execute :pm2, :stop, fetch(:app_command)
     end
   end
