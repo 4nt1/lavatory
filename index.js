@@ -8,6 +8,10 @@ app.get('/', function(req, res){
   res.sendFile('index.html', { root: __dirname });
 });
 
+app.get('/demo', function(req, res){
+  res.sendFile('demo.html', { root: __dirname });
+});
+
 app.get('/on', function(req, res){
   io.emit('bulb-on', { for: 'everyone' });
   res.json({response: 'true'});
