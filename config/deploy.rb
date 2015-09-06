@@ -12,21 +12,20 @@ require 'json'
 
 namespace :pm2 do
 
-  def app_status
+  def app_state
     within current_path do
       ps = JSON.parse(capture :pm2, :jlist, fetch(:app_command))
       if ps.empty?
         return nil
       else
-        # status: online, errored, stopped
-        return ps[0]["pm2_env"]["status"]
+        return ps[0]["pm2_env"]
       end
     end
   end
 
   def restart_app
     within current_path do
-      execute :pm2, :restart, fetch(:app_command)
+      execute :pm2, :restart, app_state['name']
     end
   end
 
@@ -39,7 +38,7 @@ namespace :pm2 do
   desc 'Restart app gracefully'
   task :restart do
     on roles(:app) do
-      case app_status
+      case app_state["status"]
       when nil
         info 'App is not registerd'
         start_app
