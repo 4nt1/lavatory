@@ -1,7 +1,7 @@
 lock '3.4.0'
 set :application, 'lavatory'
 set :repo_url, 'git@github.com:4nt1/lavatory.git'
-set :app_command, 'index'
+set :app_command, 'index.js'
 set :deploy_to, '/home/deploy/lavatory'
 
 set :linked_dirs, %w(
@@ -32,9 +32,6 @@ namespace :pm2 do
 
   def start_app
     within current_path do
-      # require 'byebug'
-      # debugger
-      # execute :npm, :install
       execute :pm2, :stop, fetch(:app_command)
     end
   end
