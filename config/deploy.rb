@@ -9,5 +9,4 @@ set :linked_dirs, %w(
 
 after 'deploy:published', :truc do
   invoke 'pm2:restart'
-
 end
