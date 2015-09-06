@@ -1,0 +1,14 @@
+{
+  "apps" : [{
+    "name"        : "lavatory",
+    "script"      : "index.js",
+    "args"        : [],
+    "watch"       : true,
+    "node_args"   : "",
+    "merge_logs"  : true,
+    "cwd"         : "",
+    "env": {
+        "NODE_ENV": "production"
+    }
+  }]
+}
