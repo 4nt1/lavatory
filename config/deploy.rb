@@ -32,7 +32,9 @@ namespace :pm2 do
 
   def start_app
     within current_path do
-      execute :npm, :install
+      # require 'byebug'
+      # debugger
+      # execute :npm, :install
       execute :pm2, :stop, fetch(:app_command)
     end
   end
